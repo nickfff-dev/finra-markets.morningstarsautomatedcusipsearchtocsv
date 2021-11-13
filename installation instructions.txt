@@ -1,0 +1,24 @@
+1. download python from here "https://www.python.org/downloads/" 
+double click to install python and accept "add to path" (during installation select "add python to path" the second option in that image https://docs.python.org/3/_images/win_installer.png  this will add python to path)
+2.after python has installed succesfully. install pip by pressing "windowskey + s" then type cmd
+command prompt will show up
+in the command prompt type the following code "py -m ensurepip --upgrade" and press enter
+
+how to setup and run bot
+1.unzip and open folder "autosearch2" where all the files are
+2.open powershell inside the folder "autosearch2" where all the files are(inside "autosearch2" hold shift then right click, select "open powershell window here")
+3.in the power shell window that opens:
+-type "pip install selenium" press enter
+	let it finish installing
+-then type "pip install pandas" press enter
+	let it finish installing
+-then type "pip install DateTime" press enter
+	let it finish installing
+-then type "pip install requests" press enter
+	let it finish installing
+
+after this, the initial setup of the script is done.
+any time you want to run it:
+add your cusips to the cusip.txt file and save,
+then open powershell inside the folder "autosearch2" by holding shift then right click and select option "open powershell"
+when powershell opens type "python autosearch.py" press enter and watch it run
