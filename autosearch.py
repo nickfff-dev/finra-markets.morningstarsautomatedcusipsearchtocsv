@@ -27,9 +27,9 @@ def get_data(cusip):
     dataz["CUSIP"].append(cusip)
     driver.find_element_by_css_selector("#ms-finra-autocomplete-box").send_keys(cusip)
     driver.find_element_by_css_selector("#ms-finra-quick-search > input.button_blue.autocomplete-go").click()
+    time.sleep(5)
 
     try:
-        time.sleep(2)
         timeStamp = time.time()
         element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body > div.rtq-panel.rtq-msg.rtq-a-c-p > div.container > div.ctn > h5')))
         print("1 took:",time.time() - timeStamp)
