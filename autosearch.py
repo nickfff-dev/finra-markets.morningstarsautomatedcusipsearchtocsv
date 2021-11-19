@@ -19,7 +19,10 @@ options.add_argument('--headless')
 driver = webdriver.Chrome(options=options)
 wait = WebDriverWait(driver, 5)
 
-
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
 
 dataz = {"CUSIP": [], "PRICE": [], "DATE":[]}
 def get_data(cusip):
@@ -31,14 +34,14 @@ def get_data(cusip):
 
     try:
         timeStamp = time.time()
-        element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body > div.rtq-panel.rtq-msg.rtq-a-c-p > div.container > div.ctn > h5')))
+        element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body > div.rtq-panel.rtq-msg.rtq-a-c-p > div.container > div.ctn > h5'))) 
         print("1 took:",time.time() - timeStamp)
         dataz["PRICE"].append(element.text)
         dataz["DATE"].append(element.text)
         
         
     except:
-        time.sleep(3)
+        time.sleep(5)
         timeStamp = time.time()
         frame = driver.find_element_by_css_selector('#ms-bond-detail-iframe')
         driver.switch_to.frame(frame)
@@ -58,6 +61,7 @@ def get_data(cusip):
 
     print(dataz)
     driver.switch_to.window(driver.window_handles[0])
+
 
 
 vitus = open("cusip.txt").read().splitlines()
